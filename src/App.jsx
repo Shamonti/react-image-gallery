@@ -1,5 +1,11 @@
+import AppLayout from './ui/AppLayout';
+
 function App() {
-  return <div>Image Gallery</div>;
+  return (
+    <div>
+      <AppLayout />
+    </div>
+  );
 }
 
 export default App;
