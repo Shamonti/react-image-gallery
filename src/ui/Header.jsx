@@ -13,13 +13,13 @@ function Header({ gallery, setGallery }) {
 
   if (!selectedImageCount)
     return (
-      <div className="flex items-center justify-between px-5 py-3">
+      <div className="flex items-center justify-between px-5 py-4">
         <h2 className="font-bold tracking-tight">Gallery</h2>
       </div>
     );
 
   return (
-    <div className="flex items-center justify-between px-5 py-3">
+    <div className="flex items-center justify-between px-5 py-2">
       <h2 className="font-bold tracking-tight">
         {selectedImageCount} images selected
       </h2>
