@@ -19,11 +19,11 @@ function AppLayout() {
   ]);
 
   return (
-    <div className=" p-auto flex h-screen items-center justify-center bg-slate-300">
-      <div className="m-5 flex flex-col rounded-md bg-white">
+    <div className=" p-auto flex h-screen items-center justify-center overflow-auto bg-slate-300 pt-5">
+      <div className="m-5 flex h-full flex-col  rounded-md bg-white">
         <Header gallery={gallery} setGallery={setGallery} />
 
-        <main className="h-full">
+        <main className="min-h-min">
           <Gallery gallery={gallery} setGallery={setGallery} />
         </main>
       </div>

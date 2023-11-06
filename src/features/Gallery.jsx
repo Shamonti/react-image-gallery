@@ -63,7 +63,7 @@ function Gallery({ gallery, setGallery }) {
 
   return (
     <>
-      <div className="grid grid-cols-1 gap-y-3 border-t border-slate-300 p-5 sm:gap-3 md:grid-cols-4 lg:grid-cols-5  xl:grid-cols-6 ">
+      <div className="grid h-full grid-cols-1 gap-y-3 overflow-auto border-t  border-slate-300 p-5 sm:gap-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
         {gallery.map((item, index) => (
           <div
             key={index}
@@ -77,7 +77,7 @@ function Gallery({ gallery, setGallery }) {
             onDragEnd={drop}
             draggable
           >
-            <div className={`overflow-hidden`}>
+            <div className={``}>
               <Image item={item} />
               <div
                 className={`absolute left-0 top-0 h-0 w-full rounded-md border border-slate-300 bg-neutral-900  opacity-0 transition-opacity duration-150 group-hover:h-full group-hover:opacity-50 group-hover:transition-opacity group-hover:duration-150 ${
