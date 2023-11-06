@@ -18,7 +18,7 @@ npm run dev
 
 ## Reflection
 
-This was a challenge provided by [Ollyo](https://ollyo.com/) for the Fresher React JS Developers post. Project goals creating a responsive image gallery which included the features of reordering, deleting multiple images, and setting a feature image.
+This was a challenge provided by [Ollyo](https://ollyo.com/) for the Fresher React JS Developers post. Project goals included creating a responsive image gallery with the features of reordering, deleting multiple images, and setting a feature image.
 
 One of the main challenges I ran into was the Drag and Drop feature. This lead me to spend some time studying the relevant DOM events.
 
