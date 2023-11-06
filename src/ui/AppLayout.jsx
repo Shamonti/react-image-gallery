@@ -12,7 +12,7 @@ function AppLayout() {
 
   return (
     <div className=" flex h-screen items-center  justify-center bg-slate-300 ">
-      <div className=" h-max rounded-md bg-white p-5">
+      <div className="h-max rounded-md bg-white ">
         <Header gallery={gallery} setGallery={setGallery} />
 
         <main>

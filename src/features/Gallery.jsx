@@ -45,8 +45,8 @@ function Gallery({ gallery, setGallery }) {
     setGallery(copyListItems);
   };
 
-  const handleSelect = id => {
-    const updatedGallery = gallery.map(item => {
+  const handleSelect = (id) => {
+    const updatedGallery = gallery.map((item) => {
       if (item.id === id) {
         item.checked = !item.checked;
       }
@@ -57,13 +57,13 @@ function Gallery({ gallery, setGallery }) {
   };
 
   return (
-    <div className='flex justify-between'>
+    <div className="flex justify-between border-t border-slate-300 p-5">
       {gallery.map((item, index) => (
         <div
           key={index}
-          className='image-container'
-          onDragStart={e => dragStart(e, index)}
-          onDragEnter={e => dragEnter(e, index)}
+          className="image-container"
+          onDragStart={(e) => dragStart(e, index)}
+          onDragEnter={(e) => dragEnter(e, index)}
           onDragEnd={drop}
           draggable
         >

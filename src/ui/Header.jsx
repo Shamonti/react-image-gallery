@@ -11,15 +11,22 @@ function Header({ gallery, setGallery }) {
     setSelectedImageCount(count);
   }, [gallery]);
 
-  if (!selectedImageCount) return <h2 className="text-red-800">Gallery</h2>;
+  if (!selectedImageCount)
+    return (
+      <div className="flex items-center justify-between px-5 py-3">
+        <h2 className="font-bold tracking-tight">Gallery</h2>
+      </div>
+    );
 
   return (
-    <h2>
-      {selectedImageCount} images selected
+    <div className="flex items-center justify-between px-5 py-3">
+      <h2 className="font-bold tracking-tight">
+        {selectedImageCount} images selected
+      </h2>
       <Button gallery={gallery} setGallery={setGallery}>
-        Delete
+        Delete file
       </Button>
-    </h2>
+    </div>
   );
 }
 

@@ -14,7 +14,7 @@ function Button({ children, gallery, setGallery }) {
   return (
     <button
       disabled={false}
-      className="focus inline-block rounded bg-red-600 px-4 py-2 font-semibold uppercase tracking-wide text-white transition-colors duration-300 hover:bg-red-500 focus:bg-red-500 focus:outline-none focus:ring focus:ring-red-500 focus:ring-offset-2 disabled:cursor-not-allowed"
+      className="focus inline-block px-4 py-2 font-bold tracking-tight text-red-700 transition-colors duration-300 hover:rounded hover:bg-red-500 hover:text-red-50 focus:bg-red-500 focus:outline-none focus:ring focus:ring-red-500 focus:ring-offset-2 disabled:cursor-not-allowed"
       onClick={handleDelete}
     >
       {children}
