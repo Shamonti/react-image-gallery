@@ -8,14 +8,13 @@ function Gallery({ gallery, setGallery }) {
   const dragOverItem = useRef();
   const [selectedItems, setSelectedItems] = useState([]);
 
+  /* Added necessary functions to implement the drag-and-drop functionality */
   const dragStart = (e, position) => {
     dragItem.current = position;
-    console.log(dragItem);
   };
 
   const dragEnter = (e, position) => {
     dragOverItem.current = position;
-    console.log(dragOverItem.current);
   };
 
   const drop = () => {
@@ -45,6 +44,7 @@ function Gallery({ gallery, setGallery }) {
     setGallery(copyListItems);
   };
 
+  /* Handling the selection of images when checked */
   const handleSelect = (id) => {
     const updatedGallery = gallery.map((item) => {
       if (item.id === id) {
