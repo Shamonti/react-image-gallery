@@ -7,7 +7,7 @@ function Image({ item, index }) {
       alt={item.src}
       className={`img ${
         index == 0 ? 'featured' : ''
-      }  w-full object-cover transition-colors duration-300`}
+      }  w-full rounded-md border border-slate-300 object-cover transition-colors duration-300`}
       draggable={item.featured}
     />
   );

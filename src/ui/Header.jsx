@@ -24,7 +24,7 @@ function Header({ gallery, setGallery }) {
         {selectedImageCount} images selected
       </h2>
       <Button gallery={gallery} setGallery={setGallery}>
-        Delete file
+        Delete {selectedImageCount > 1 ? 'files' : 'file'}
       </Button>
     </div>
   );

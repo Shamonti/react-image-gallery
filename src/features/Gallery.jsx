@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
 
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import Image from './Image';
 // import Checkbox from './Checkbox';
 
 function Gallery({ gallery, setGallery }) {
   const dragItem = useRef();
   const dragOverItem = useRef();
+  const [selectedItems, setSelectedItems] = useState([]);
 
   const dragStart = (e, position) => {
     dragItem.current = position;
@@ -53,6 +54,12 @@ function Gallery({ gallery, setGallery }) {
       return item;
     });
     setGallery(updatedGallery);
+
+    if (selectedItems.includes(id)) {
+      setSelectedItems(selectedItems.filter((itemId) => itemId !== id)); // Deselect the item
+    } else {
+      setSelectedItems([...selectedItems, id]); // Select the item
+    }
   };
 
   return (
@@ -61,7 +68,7 @@ function Gallery({ gallery, setGallery }) {
         {gallery.map((item, index) => (
           <div
             key={index}
-            className="group relative  max-w-[150px]  rounded border border-slate-300"
+            className="group relative max-w-[150px] "
             onDragStart={(e) => dragStart(e, index)}
             onDragEnter={(e) => dragEnter(e, index)}
             onDragEnd={drop}
@@ -69,37 +76,32 @@ function Gallery({ gallery, setGallery }) {
           >
             <Image item={item} index={item} />
 
-            <div className="group-hover:ease absolute left-0 top-0 flex h-0 w-full flex-col items-center justify-center bg-neutral-900  opacity-0 group-hover:h-full group-hover:opacity-50 group-hover:transition-colors group-hover:duration-500">
+            {/* <div className=" absolute left-0 top-0 h-0 w-full rounded-md border border-slate-300 bg-neutral-900 opacity-0 group-hover:h-full group-hover:opacity-50 group-hover:transition-colors group-hover:duration-500"> */}
+            <div
+              className={`absolute left-0 top-0 h-0 w-full rounded-md border border-slate-300 bg-neutral-900  opacity-0 transition-opacity duration-150 group-hover:h-full group-hover:opacity-50 group-hover:transition-opacity group-hover:duration-150 ${
+                selectedItems.includes(item.id)
+                  ? 'h-full opacity-50 transition-opacity duration-150'
+                  : 'opacity-0'
+              }`}
+            >
               <input
                 type="checkbox"
                 value={item.id}
-                className="checkbox"
+                className="m-3 h-5 w-5"
                 onChange={() => handleSelect(item.id)}
                 checked={item.checked || false}
               />
+              {/* <Checkbox item={item} onChange={handleSelect} /> */}
             </div>
-            {/* <Checkbox item={item} onChange={handleSelect} /> */}
           </div>
         ))}
       </div>
-      {/* <div className="group relative w-96">
-        <img
-          className="w-full object-cover"
-          src="https://www.kindacode.com/wp-content/uploads/2022/06/t-shirt-example.png"
-        />
-        <div className="absolute left-0 top-0 flex h-0 w-full flex-col items-center justify-center bg-indigo-700 opacity-0 duration-500 group-hover:h-full group-hover:opacity-100">
-          <h1 className="text-2xl text-white">Fiction T-Shirt Store</h1>
-          <a
-            className="mt-5 rounded-full bg-amber-400 px-8 py-3 duration-300 hover:bg-amber-600"
-            href="#"
-          >
-            Continue Shopping
-          </a>
-        </div>
-      </div> */}
     </>
   );
 }
+// ${
+//   checkboxSelected ? 'h-full opacity-50' : ''
+// }
 
 Gallery.propTypes = {
   gallery: PropTypes.array.isRequired,
