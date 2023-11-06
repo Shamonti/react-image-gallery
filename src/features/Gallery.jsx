@@ -11,10 +11,12 @@ function Gallery({ gallery, setGallery }) {
   /* Added necessary functions to implement the drag-and-drop functionality */
   const dragStart = (e, position) => {
     dragItem.current = position;
+    console.log(dragItem.current);
   };
 
   const dragEnter = (e, position) => {
     dragOverItem.current = position;
+    console.log(dragOverItem.current);
   };
 
   const drop = () => {
@@ -42,6 +44,7 @@ function Gallery({ gallery, setGallery }) {
     dragItem.current = null;
     dragOverItem.current = null;
     setGallery(copyListItems);
+    console.log('end of drag');
   };
 
   /* Handling the selection of images when checked */
@@ -75,9 +78,12 @@ function Gallery({ gallery, setGallery }) {
             onDragStart={(e) => dragStart(e, index)}
             onDragEnter={(e) => dragEnter(e, index)}
             onDragEnd={drop}
+            onTouchStart={(e) => dragStart(e, index)}
+            onTouchMove={(e) => dragEnter(e, index)}
+            onTouchEnd={drop}
             draggable
           >
-            <div className={``}>
+            <div>
               <Image item={item} />
               <div
                 className={`absolute left-0 top-0 h-0 w-full rounded-md border border-slate-300 bg-neutral-900  opacity-0 transition-opacity duration-150 group-hover:h-full group-hover:opacity-50 group-hover:transition-opacity group-hover:duration-150 ${
