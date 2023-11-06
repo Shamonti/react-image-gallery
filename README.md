@@ -1,8 +1,31 @@
-# React + Vite
+# React Image Gallery
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React Image Gallery is a responsive image gallery built using React with the following features: reordering, deleting multiple images, and setting a feature image.
 
-Currently, two official plugins are available:
+## Installation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Use the package manager npm to install React Image Gallery.
+
+```bash
+npm install
+```
+
+Run the specific commands for serving the project, to any server, to live development.
+
+```bash
+npm run dev
+```
+
+## Reflection
+
+This was a challenge provided by [Ollyo](https://ollyo.com/) for the Fresher React JS Developers post. Project goals creating a responsive image gallery which included the features of reordering, deleting multiple images, and setting a feature image.
+
+One of the main challenges I ran into was the Drag and Drop feature. This lead me to spend some time studying the relevant DOM events.
+
+At the end of the day, the technologies implemented in this project are React and Tailwind CSS, and a significant amount of JSX. I chose to use the `npm create vite@latest` boilerplate to minimize initial setup and invest more time in diving into weird technological rabbit holes.
+
+## Live Links
+
+[Link01](https://react-image-gallery-lovat-two.vercel.app/)
+[Link02](https://react-image-gallery-shamonti-haques-projects.vercel.app/)
+[Link03](https://react-image-gallery-git-master-shamonti-haques-projects.vercel.app/)
