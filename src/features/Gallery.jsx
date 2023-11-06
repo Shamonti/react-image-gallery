@@ -9,9 +9,29 @@ function Gallery({ gallery, setGallery }) {
 
   const [selectedItems, setSelectedItems] = useState([]);
 
+  const disableScroll = () => {
+    if (typeof window !== 'undefined') {
+      window.addEventListener('touchmove', preventScroll, { passive: false });
+    }
+  };
+
+  const enableScroll = () => {
+    if (typeof window !== 'undefined') {
+      window.removeEventListener('touchmove', preventScroll, {
+        passive: false,
+      });
+    }
+  };
+
+  const preventScroll = (e) => {
+    e.preventDefault();
+  };
+
   /* Added necessary functions to implement the drag-and-drop functionality */
   const dragStart = (e, position) => {
     dragItem.current = position;
+    /* To prevent scrolling for mobile views when a item is selected for drag */
+    disableScroll();
   };
 
   const dragEnter = (e, position) => {
@@ -43,6 +63,7 @@ function Gallery({ gallery, setGallery }) {
     dragItem.current = null;
     dragOverItem.current = null;
     setGallery(copyListItems);
+    enableScroll();
   };
 
   /* Added necessary functions to implement the drag-and-drop functionality in mobile*/
