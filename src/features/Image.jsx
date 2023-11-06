@@ -6,7 +6,7 @@ function Image({ item }) {
       src={item.src}
       alt={item.src}
       className={`img h-48 rounded-md border border-slate-300 object-cover transition-colors duration-300 sm:h-full`}
-      draggable={item.featured}
+      // draggable={item.featured}
     />
   );
 }
@@ -14,9 +14,7 @@ function Image({ item }) {
 Image.propTypes = {
   item: PropTypes.shape({
     src: PropTypes.string.isRequired,
-    featured: PropTypes.bool.isRequired,
   }).isRequired,
-  index: PropTypes.number.isRequired,
 };
 
 export default Image;

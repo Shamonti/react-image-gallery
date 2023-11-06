@@ -6,6 +6,7 @@ import Image from './Image';
 function Gallery({ gallery, setGallery }) {
   const dragItem = useRef();
   const dragOverItem = useRef();
+
   const [selectedItems, setSelectedItems] = useState([]);
 
   /* Added necessary functions to implement the drag-and-drop functionality */
@@ -44,6 +45,35 @@ function Gallery({ gallery, setGallery }) {
     setGallery(copyListItems);
   };
 
+  /* Added necessary functions to implement the drag-and-drop functionality in mobile*/
+  const touchMove = (e, position) => {
+    if (e.targetTouches && e.targetTouches.length > 0) {
+      const touch = e.targetTouches[0]; // Get the first touch
+
+      const x = touch.clientX;
+      const y = touch.clientY;
+
+      const elements = document.elementsFromPoint(x, y);
+
+      if (elements) {
+        const imageElement = elements.find((element) => {
+          return element.classList.contains('img');
+        });
+
+        if (imageElement) {
+          const index = gallery.findIndex(
+            (item) => item.src === imageElement.getAttribute('src'),
+          );
+
+          if (index !== -1) {
+            dragOverItem.current = index;
+            console.log(position);
+          }
+        }
+      }
+    }
+  };
+
   /* Handling the selection of images when checked */
   const handleSelect = (id) => {
     const updatedGallery = gallery.map((item) => {
@@ -76,7 +106,9 @@ function Gallery({ gallery, setGallery }) {
             onDragEnter={(e) => dragEnter(e, index)}
             onDragEnd={drop}
             onTouchStart={(e) => dragStart(e, index)}
-            onTouchMove={(e) => dragEnter(e, index)}
+            onTouchMove={(e) => {
+              touchMove(e, index);
+            }}
             onTouchEnd={drop}
             draggable
           >

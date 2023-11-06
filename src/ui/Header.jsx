@@ -14,7 +14,7 @@ function Header({ gallery, setGallery }) {
   if (!selectedImageCount)
     return (
       <div className="flex items-center justify-between px-5 py-4">
-        <h2 className="font-semibold tracking-tight sm:font-bold">Gallery!</h2>
+        <h2 className="font-semibold tracking-tight sm:font-bold">Gallery</h2>
       </div>
     );
 
