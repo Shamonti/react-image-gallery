@@ -57,11 +57,11 @@ function Gallery({ gallery, setGallery }) {
   };
 
   return (
-    <div className="flex justify-between border-t border-slate-300 p-5">
+    <div className=" grid h-screen grid-cols-1 gap-3 border-t border-slate-300  p-5">
       {gallery.map((item, index) => (
         <div
           key={index}
-          className="image-container"
+          className="image-container max-w-[150px] rounded border border-slate-300"
           onDragStart={(e) => dragStart(e, index)}
           onDragEnter={(e) => dragEnter(e, index)}
           onDragEnd={drop}
