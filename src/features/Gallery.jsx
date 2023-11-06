@@ -63,7 +63,7 @@ function Gallery({ gallery, setGallery }) {
 
   return (
     <>
-      <div className="grid h-full grid-cols-1 gap-y-3 overflow-auto border-t  border-slate-300 p-5 sm:gap-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
+      <div className="grid h-full grid-cols-1 gap-y-3 overflow-auto border-t border-slate-300 p-5 sm:gap-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
         {gallery.map((item, index) => (
           <div
             key={index}

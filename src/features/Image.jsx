@@ -5,7 +5,7 @@ function Image({ item }) {
     <img
       src={item.src}
       alt={item.src}
-      className={`img h-32 rounded-md border border-slate-300 object-cover transition-colors duration-300 sm:h-full`}
+      className={`img h-48 rounded-md border border-slate-300 object-cover transition-colors duration-300 sm:h-full`}
       draggable={item.featured}
     />
   );
