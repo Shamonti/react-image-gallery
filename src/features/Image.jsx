@@ -1,13 +1,11 @@
 import PropTypes from 'prop-types';
 
-function Image({ item, index }) {
+function Image({ item }) {
   return (
     <img
       src={item.src}
       alt={item.src}
-      className={`img ${
-        index == 0 ? 'featured' : ''
-      } h-full w-full rounded-md border border-slate-300 object-cover transition-colors duration-300`}
+      className={`img rounded-md border border-slate-300 object-cover transition-colors duration-300`}
       draggable={item.featured}
     />
   );
