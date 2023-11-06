@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 
 import { useRef, useState } from 'react';
 import Image from './Image';
-// import Checkbox from './Checkbox';
 
 function Gallery({ gallery, setGallery }) {
   const dragItem = useRef();
@@ -56,42 +55,44 @@ function Gallery({ gallery, setGallery }) {
     setGallery(updatedGallery);
 
     if (selectedItems.includes(id)) {
-      setSelectedItems(selectedItems.filter((itemId) => itemId !== id)); // Deselect the item
+      setSelectedItems(selectedItems.filter((itemId) => itemId !== id));
     } else {
-      setSelectedItems([...selectedItems, id]); // Select the item
+      setSelectedItems([...selectedItems, id]);
     }
   };
 
   return (
     <>
-      <div className="grid grid-cols-3  gap-3 border-t border-slate-300 p-5">
+      <div className="grid grid-cols-5 grid-rows-3 gap-3 border-t border-slate-300 p-5">
         {gallery.map((item, index) => (
           <div
             key={index}
-            className="group relative max-w-[150px] "
+            className={`group relative ${
+              index === 0 ? 'col-span-2 row-span-2' : 'col-span-1 row-span-1'
+            } max-w-[150px]`}
             onDragStart={(e) => dragStart(e, index)}
             onDragEnter={(e) => dragEnter(e, index)}
             onDragEnd={drop}
             draggable
           >
-            <Image item={item} index={item} />
+            <div className="h-full w-full overflow-hidden">
+              <Image item={item} index={item} />
 
-            {/* <div className=" absolute left-0 top-0 h-0 w-full rounded-md border border-slate-300 bg-neutral-900 opacity-0 group-hover:h-full group-hover:opacity-50 group-hover:transition-colors group-hover:duration-500"> */}
-            <div
-              className={`absolute left-0 top-0 h-0 w-full rounded-md border border-slate-300 bg-neutral-900  opacity-0 transition-opacity duration-150 group-hover:h-full group-hover:opacity-50 group-hover:transition-opacity group-hover:duration-150 ${
-                selectedItems.includes(item.id)
-                  ? 'h-full opacity-50 transition-opacity duration-150'
-                  : 'opacity-0'
-              }`}
-            >
-              <input
-                type="checkbox"
-                value={item.id}
-                className="m-3 h-5 w-5"
-                onChange={() => handleSelect(item.id)}
-                checked={item.checked || false}
-              />
-              {/* <Checkbox item={item} onChange={handleSelect} /> */}
+              <div
+                className={`absolute left-0 top-0 h-0 w-full rounded-md border border-slate-300 bg-neutral-900  opacity-0 transition-opacity duration-150 group-hover:h-full group-hover:opacity-50 group-hover:transition-opacity group-hover:duration-150 ${
+                  selectedItems.includes(item.id)
+                    ? 'h-full opacity-50 transition-opacity duration-150'
+                    : 'opacity-0'
+                }`}
+              >
+                <input
+                  type="checkbox"
+                  value={item.id}
+                  className="m-3 h-5 w-5"
+                  onChange={() => handleSelect(item.id)}
+                  checked={item.checked || false}
+                />
+              </div>
             </div>
           </div>
         ))}
@@ -99,9 +100,6 @@ function Gallery({ gallery, setGallery }) {
     </>
   );
 }
-// ${
-//   checkboxSelected ? 'h-full opacity-50' : ''
-// }
 
 Gallery.propTypes = {
   gallery: PropTypes.array.isRequired,

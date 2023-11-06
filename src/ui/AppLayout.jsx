@@ -20,10 +20,10 @@ function AppLayout() {
 
   return (
     <div className=" flex h-screen items-center  justify-center bg-slate-300 ">
-      <div className="h-max rounded-md bg-white ">
+      <div className="m-5 flex flex-col rounded-md bg-white">
         <Header gallery={gallery} setGallery={setGallery} />
 
-        <main>
+        <main className="h-full">
           <Gallery gallery={gallery} setGallery={setGallery} />
         </main>
       </div>
