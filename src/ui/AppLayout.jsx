@@ -11,12 +11,14 @@ function AppLayout() {
   ]);
 
   return (
-    <div>
-      <Header gallery={gallery} setGallery={setGallery} />
+    <div className=" flex h-screen items-center  justify-center bg-slate-300 ">
+      <div className=" h-max rounded-md bg-white p-5">
+        <Header gallery={gallery} setGallery={setGallery} />
 
-      <main>
-        <Gallery gallery={gallery} setGallery={setGallery} />
-      </main>
+        <main>
+          <Gallery gallery={gallery} setGallery={setGallery} />
+        </main>
+      </div>
     </div>
   );
 }
