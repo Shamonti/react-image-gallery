@@ -5,7 +5,9 @@ function Image({ item, index }) {
     <img
       src={item.src}
       alt={item.src}
-      className={`img ${index == 0 ? 'featured' : ''}`}
+      className={`img ${
+        index == 0 ? 'featured' : ''
+      }  w-full object-cover transition-colors duration-300`}
       draggable={item.featured}
     />
   );
