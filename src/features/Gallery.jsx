@@ -11,12 +11,10 @@ function Gallery({ gallery, setGallery }) {
   /* Added necessary functions to implement the drag-and-drop functionality */
   const dragStart = (e, position) => {
     dragItem.current = position;
-    console.log(dragItem.current);
   };
 
   const dragEnter = (e, position) => {
     dragOverItem.current = position;
-    console.log(dragOverItem.current);
   };
 
   const drop = () => {
@@ -44,7 +42,6 @@ function Gallery({ gallery, setGallery }) {
     dragItem.current = null;
     dragOverItem.current = null;
     setGallery(copyListItems);
-    console.log('end of drag');
   };
 
   /* Handling the selection of images when checked */
